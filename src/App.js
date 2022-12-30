@@ -8,7 +8,6 @@ function App() {
     
     <section class="left-part">
     <img src={Line} alt="linea" />
-
       <BigLed/>
       <Leds/>
     </section>
