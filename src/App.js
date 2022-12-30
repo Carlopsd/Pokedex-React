@@ -1,16 +1,16 @@
 import './App.css';
-import Led from './components/led';
+import Leds from './components/leds';
 import BigLed from './components/big-led';
+import Line from './media/line.svg'
 
 function App() {
   return (
+    
     <section class="left-part">
-      <div class="leds">
-        <BigLed/>
-        <Led/>
-        <Led/>
-        <Led/>
-      </div>
+    <img src={Line} alt="linea" />
+
+      <BigLed/>
+      <Leds/>
     </section>
   );
 }
