@@ -1,0 +1,130 @@
+$section-background-color: #d90429;
+$from-text-color: #e9ecef;
+$screen-backgroun-color:#7d8597;
+
+*{
+    font-family: 'Roboto Mono', monospace;
+}
+body{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    background-image: url(./media/background-image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100wv;
+}
+section{
+    height: fit-content;
+    width: 500px;
+    min-width: 350px;
+    background-color: $section-background-color;
+    border-radius: 10px;    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Leds */
+.top-leds{
+    width: 40%;
+    min-width: 180px;
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    align-self: flex-start;
+
+    .leds{
+        align-self: flex-start;
+    }
+}
+
+//Pantalla
+.screen{
+    #information{
+        display: none;
+        overflow: scroll;
+        overflow-x: hidden;
+        height: 95%;
+        width: 55%;
+        text-align: left;
+
+        &::-webkit-scrollbar{
+            background-color:$screen-backgroun-color;
+        }
+        &::-webkit-scrollbar-thumb{
+            background-color: #001845;
+            border-radius: 20px;
+            border: 1px solid #001845;
+        }
+
+        h1{
+            margin-bottom: 0;
+            text-align: center;
+            color: #001845;
+        }
+    }
+    #all-pokemons{
+        @extend #information
+    }
+    
+    #list-abilities{
+        column-count:2;
+    }
+    #list-moves{
+        column-count:2;
+    }
+
+    progress {
+        -webkit-appearance:none;
+    }
+    ::-webkit-progress-value{
+        background-color: #0096c7;
+    }
+    ::-webkit-progress-bar {
+        background-color: #33415c;
+    }
+}
+
+// Botones largos 
+.largeButons{
+    margin-left: -10rem;
+    width: 20%;
+}
+//Botones de cruz y pantalla verde
+.buttons-screen{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+}
+
+@media (max-width: 500px) {
+    section{
+        max-width: 99vw;
+    }
+    .form{
+        form{
+            // flex-direction: column;
+            width: 90%;
+            span{
+                display: none;
+            }
+        }
+    }
+    .screen{
+        height: 300px;
+        .presentation{
+            font-size: 0.8rem;
+        }
+        #information{
+            font-size: 0.7rem;
+        }
+    }
+    .direction-buttons{
+        margin-left: 10px;
+    }
+}

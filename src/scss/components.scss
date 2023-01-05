@@ -1,0 +1,243 @@
+$leds-background-color: #e9ecef;
+$screen-borde-color: #ced4da;
+$screen-backgroun-color:#7d8597;
+$screen-text-color:black;
+$from-text-color: #e9ecef;
+
+    /* Leds */
+/* Led grande */
+.big-led{
+    background-color: #00b4d8;
+    border-radius: 100%;
+    border: solid 4px $leds-background-color;
+    width: 50px;
+    height: 50px;
+    box-shadow: -2px 2px 5px black;
+    &-dot{
+        background-color: #90e0ef;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        position: relative;
+        left: 5px;
+        top:3px
+    }
+    &:hover{
+        background-color: #90e0ef;
+    }
+}
+/* 3 Leds en la izquierda superiores */
+@mixin Led($class,$color,$dot-color){
+    .#{$class}{
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        border: solid 2px black;
+        box-shadow: -0.8px 0.8px 1px black;
+        background-color: $color;
+        .dot{
+            width: 10px;
+            height: 10px;
+            border: 0;
+            position: relative;
+            left: 2px;
+            top:1px;
+            border-radius: 100%;
+            background-color: $dot-color;
+        }
+        &:hover{
+            background-color: $dot-color;
+        }
+    }
+}
+.leds{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $leds-background-color;
+    box-shadow: -2px 2px 4px black;
+
+    @include Led('red',red , rgba(253, 106, 106, 0.781));
+    @include Led('green',green , rgb(94, 190, 94));
+    @include Led('yellow',#ffdd32 , #ffee99);
+}
+
+/* Linea de decorado */
+.line{
+    width: 100%;
+    height: 70px;
+    margin-top: -50px;
+    transform: scaleX(-1);   
+}
+//Formulario
+.form{
+    margin-top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    form{
+        margin-top: 50px;
+        display: flex;
+        margin-bottom: 5px;
+        input{
+            font-size: 1.1rem;
+            width: 300px;
+            background-color: black;
+            color: $from-text-color;
+            border-radius: 8px;
+        }
+    }
+    button{
+        font-size: 1.1rem;
+        background-color: black;
+        color: $from-text-color;
+        margin-left: 10px;
+        border-radius: 10px;
+    }
+    
+    button:hover{
+        cursor: pointer;
+    }
+}
+/* Pantalla de nombre e id */
+.screen{
+    color: $screen-text-color;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    margin: 20px;
+    border: solid 15px $screen-borde-color;
+    border-bottom: 30px solid $screen-borde-color;
+    background-color:$screen-backgroun-color;
+    width: 90%;
+    min-width: 200px;
+    height: 500px;
+    min-height: 200px;
+    border-radius: 10px;
+    .presentation{
+        min-width: 45%;
+    }
+    @mixin types($class,$background-color){
+        .#{$class}{
+            padding: 5px 10px;
+            color:$from-text-color;
+            width: fit-content;
+            border-radius: 10px;
+            background-color: $background-color;
+        }
+    }
+    
+    #list-types{
+        @include types('normal', #A8A878);
+        @include types('fire', #F08030);
+        @include types('water', #6890F0);
+        @include types('grass', #78C850);
+        @include types('electric', #F8D030);
+        @include types('ice', #98D8D8);
+        @include types('fighting', #C03028);
+        @include types('poison', #A040A0);
+        @include types('ground', #E0C068);
+        @include types('flying', #A890F0);
+        @include types('psychc', #F85888);
+        @include types('bug', #A8B820);
+        @include types('rock', #B8A038);
+        @include types('ghost', #705898);
+        @include types('dark', #705848);
+        @include types('dragon', #7038F8);
+        @include types('steel', #B8B8D0);
+        @include types('fairy', #F0B6BC);
+    }
+}
+
+// Botones largos
+@mixin LargeButton($class, $color){
+    .#{$class}{
+        background-color: $color;
+        width: 70px;
+        height: 15px;
+        border-radius: 10px;
+        box-shadow: -2px 2px 4px black;
+        &:hover{
+            cursor: pointer;
+        }
+        &:active{
+            box-shadow: none;
+        }
+    }
+}
+.largeButons{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 200px;
+    position: relative;
+    left: 20px;
+    @include LargeButton('green', green);
+    @include LargeButton('blue', blue);
+}
+
+/* Pantalla verde */
+.green-screen{
+    background-color: #55AB62;
+    width: 200px;
+    min-width: 100px;
+    height: 110px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    img{
+        width: 70px;
+        height: auto;
+    }
+}
+
+/* Botones de direción */
+.direction-buttons{
+    display: grid;
+    grid-template-columns: 54px 55px 54px;
+    grid-template-rows: 60px 60px 60px; 
+    #left{
+        position: sticky;
+        font-size: 56px;
+    }
+    #center{
+        align-self: center;
+        margin-top: 1px;
+        background-color: black;
+        position: sticky;
+        height: 60px;
+    }
+    i{
+        font-size: 3.4rem;
+        background-color:#02040f;
+        color:#212529;
+        border-radius: 10px;
+        box-shadow: -5px 5px 5px black;
+        
+        padding: 0;
+        &:hover{
+            cursor: pointer;
+        }
+        &:active{
+            box-shadow: -1px 1px 1px black;
+        }
+    }
+    div {
+        text-align: center;
+        margin: -5px 0px ;
+    }
+}
